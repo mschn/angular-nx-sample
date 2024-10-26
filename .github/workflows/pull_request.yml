@@ -1,0 +1,28 @@
+name: pull request
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+
+      - name: Nx cache
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-nx
+        with:
+          path: .nx
+          key: ${{ runner.os }}-cache-nx-${{ hashFiles('**/*.ts') }}
+          restore-keys: |
+            ${{ runner.os }}-cache-nx-
+
+      - run: npx nx run-many -t test
+        env:
+          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
