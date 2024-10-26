@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-nx/customers": ["libs/customers/src/index.ts"],
+      "@angular-nx/products": ["libs/products/src/index.ts"],
+      "@angular-nx/shared": ["libs/shared/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,0 +1,13 @@
+.card {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: .25rem;
+    padding: .5rem;
+    margin: .5rem;
+    background: #eee;
+    color: #222;
+
+    h3 {
+        margin: 0;
+    }
+}

@@ -1,1 +1,14 @@
-<app-nx-welcome></app-nx-welcome> <router-outlet></router-outlet>
+<div class="navbar">
+  @for (route of routes; track route.title) {
+    <a
+      [routerLink]="route.path"
+      class="nav"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >{{ route.title }}</a
+    >
+  }
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
